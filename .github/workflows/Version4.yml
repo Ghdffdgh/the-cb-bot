@@ -1,0 +1,61 @@
+cb.settings_choices = [
+{ name: 'onmsg',
+  type: 'str',
+  defaultValue: 'Spanks have been enabled',
+  label: 'Spanks On Notice'
+},
+{ name: 'offmsg',
+  type: 'str',
+  defaultValue: 'Spanks have been disabled',
+  label: 'Spanks Off Notice'
+},
+{ name: 'sponmsg',
+  type: 'str',
+  defaultValue: 'A Special Deal on Spanks has Started!! Spanks are Now 1/2 off!! :leiaspanks',
+  label: 'Special Deal Notice'
+},
+{ name: 'spoffmsg',
+  type: 'str',
+  defaultValue: 'The Deal on Spanks has Ended! Total Spanks: spanks',
+  label: 'Special Deal Over Notice'
+},
+{ name: 'amt',
+  type: 'int',
+  defaultValue: '5',
+  label: 'Spanks Amount'
+},
+{ name: 'addtip',
+  type: 'int',
+  defaultValue: '11',
+  label: 'Add Spanks Amount'
+},
+{ name: 'addmsg',
+  type: 'str',
+  defaultValue: 'tipper Tipped to add Spanks Total Spanks: spanks',
+  label: 'Add Spanks Notice'
+},
+{ name: 'subtip',
+  type: 'int',
+  defaultValue: '12',
+  label: 'Sub Spanks Amount'
+},
+{ name: 'submsg',
+  type: 'str',
+  defaultValue: 'tipper Tipped to sub Spanks Total Spanks: spanks',
+  label: 'Sub Spanks Msg'
+},
+{ name: 'sptip',
+  type: 'int',
+  defaultValue: '5',
+  label: 'Special Spanks Amount'
+},
+{ name: 'spmsg',
+  type: 'str',
+  defaultValue: 'tipper Tipped for AFK Spanks Total Spanks: spanks',
+  label: 'Special Spanks Notice'
+},
+{ name: 'color',
+  type: 'str',
+  defaultValue: '#80FFE0',
+  label: 'Notices Color'
+}]
