@@ -63,7 +63,7 @@ cb.settings_choices = [
 var spanks;
 spanks = 0;
 var spankson = true
-var spspankson = true
+var spon = true
 
 cb.onMessage (function(msg){
  if (msg['m'].startsWith('!')){
@@ -71,11 +71,31 @@ cb.onMessage (function(msg){
   } else {return msg
   }
   if (msg['m'] == '!spanks'){
-   cb.chatNotice('Spanks Total: ' + spanks, '', cb.settings.color)
+   cb.chatNotice('Spanks Total: ' + spanks, msg['user'], cb.settings.color)
   }
-  if (msg['m'] == '!spankson'){
-   spankson = true
-   cb.chatNotice(cb.settings.onmsg, '', cb.settings.chatcolor)
+  if (msg['m'] == '!spanksleaderboard'){
+  }
+  if (msg['user] == cb.room_slug || msg['is_mod']){
+   if (msg['m'] == '!spankson'){
+    spankson = true
+    cb.chatNotice(cb.settings.onmsg, '', cb.settings.color)
+   }
+   if (msg['m'] == '!spanksoff'){
+    spankson = false
+    cb.chatNotice(cb.settings.offmsg, '', cb.settings.color)
+   }
+   if (msg['m'] == '!afkon'){
+    spon = true
+    cb.chatNotice(cb.settings.sponmsg, '', cb.settings.color)
+   }
+   if (msg['m'] == '!afkoff'){
+    spon = false
+    cb.chatNotice(cb.settings.spoffmsg, '', cb.settings.color
+   }
+   if (msg['m'].startsWith '!spanked'){
+   }
+   if (msg['m'].startsWith 'addspanks'){
+   }
   }
  }
 })
