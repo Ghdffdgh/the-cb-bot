@@ -59,3 +59,23 @@ cb.settings_choices = [
   defaultValue: '#80FFE0',
   label: 'Notices Color'
 }]
+
+var spanks;
+spanks = 0;
+var spankson = true
+var spspankson = true
+
+cb.onMessage (function(msg){
+ if (msg['m'].startsWith('!')){
+  msg['X-Spam'] = true
+  } else {return msg
+  }
+  if (msg['m'] == '!spanks'){
+   cb.chatNotice('Spanks Total: ' + spanks, '', cb.settings.color)
+  }
+  if (msg['m'] == '!spankson'){
+   spankson = true
+   cb.chatNotice(cb.settings.onmsg, '', cb.settings.chatcolor)
+  }
+ }
+})
