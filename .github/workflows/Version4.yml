@@ -1,101 +1,427 @@
-cb.settings_choices = [
-{ name: 'onmsg',
-  type: 'str',
-  defaultValue: 'Spanks have been enabled',
-  label: 'Spanks On Notice'
-},
-{ name: 'offmsg',
-  type: 'str',
-  defaultValue: 'Spanks have been disabled',
-  label: 'Spanks Off Notice'
-},
-{ name: 'sponmsg',
-  type: 'str',
-  defaultValue: 'A Special Deal on Spanks has Started!! Spanks are Now 1/2 off!! :leiaspanks',
-  label: 'Special Deal Notice'
-},
-{ name: 'spoffmsg',
-  type: 'str',
-  defaultValue: 'The Deal on Spanks has Ended! Total Spanks: spanks',
-  label: 'Special Deal Over Notice'
-},
-{ name: 'amt',
-  type: 'int',
-  defaultValue: '5',
-  label: 'Spanks Amount'
-},
-{ name: 'addtip',
-  type: 'int',
-  defaultValue: '11',
-  label: 'Add Spanks Amount'
-},
-{ name: 'addmsg',
-  type: 'str',
-  defaultValue: 'tipper Tipped to add Spanks Total Spanks: spanks',
-  label: 'Add Spanks Notice'
-},
-{ name: 'subtip',
-  type: 'int',
-  defaultValue: '12',
-  label: 'Sub Spanks Amount'
-},
-{ name: 'submsg',
-  type: 'str',
-  defaultValue: 'tipper Tipped to sub Spanks Total Spanks: spanks',
-  label: 'Sub Spanks Msg'
-},
-{ name: 'sptip',
-  type: 'int',
-  defaultValue: '5',
-  label: 'Special Spanks Amount'
-},
-{ name: 'spmsg',
-  type: 'str',
-  defaultValue: 'tipper Tipped for AFK Spanks Total Spanks: spanks',
-  label: 'Special Spanks Notice'
-},
-{ name: 'color',
-  type: 'str',
-  defaultValue: '#80FFE0',
-  label: 'Notices Color'
-}]
+cb.settings_choices = [{
 
-var spanks;
-spanks = 0;
-var spankson = true
-var spon = true
+        name: 'exec',
 
-cb.onMessage (function(msg){
- if (msg['m'].startsWith('!')){
-  msg['X-Spam'] = true
-  } else {return msg
-  }
-  if (msg['m'] == '!spanks'){
-   cb.chatNotice('Spanks Total: ' + spanks, msg['user'], cb.settings.color)
-  }
-  if (msg['m'] == '!spanksleaderboard'){
-  }
-  if (msg['user] == cb.room_slug || msg['is_mod']){
-   if (msg['m'] == '!spankson'){
-    spankson = true
-    cb.chatNotice(cb.settings.onmsg, '', cb.settings.color)
-   }
-   if (msg['m'] == '!spanksoff'){
-    spankson = false
-    cb.chatNotice(cb.settings.offmsg, '', cb.settings.color)
-   }
-   if (msg['m'] == '!afkon'){
-    spon = true
-    cb.chatNotice(cb.settings.sponmsg, '', cb.settings.color)
-   }
-   if (msg['m'] == '!afkoff'){
-    spon = false
-    cb.chatNotice(cb.settings.spoffmsg, '', cb.settings.color
-   }
-   if (msg['m'].startsWith '!spanked'){
-   }
-   if (msg['m'].startsWith 'addspanks'){
-   }
-  }
- }
+        type: 'str',
+
+        defaultValue: '!',
+
+        label: 'Commands Prefix'
+
+    },
+
+    {
+
+        name: 'onmsg',
+
+        type: 'str',
+
+        defaultValue: 'Spanks have been enabled',
+
+        label: 'Spanks On Notice'
+
+    },
+
+    {
+
+        name: 'offmsg',
+
+        type: 'str',
+
+        defaultValue: 'Spanks have been disabled',
+
+        label: 'Spanks Off Notice'
+
+    },
+
+    {
+
+        name: 'sponmsg',
+
+        type: 'str',
+
+        defaultValue: 'A Special Deal on Spanks has Started!! Spanks are Now 1/2 off!! :leiaspanks',
+
+        label: 'Special Deal Notice'
+
+    },
+
+    {
+
+        name: 'spoffmsg',
+
+        type: 'str',
+
+        defaultValue: 'The Deal on Spanks has Ended! Total Spanks: spanks',
+
+        label: 'Special Deal Over Notice'
+
+    },
+
+    {
+
+        name: 'amt',
+
+        type: 'int',
+
+        defaultValue: '5',
+
+        label: 'Spanks Amount'
+
+    },
+
+    {
+
+        name: 'addtip',
+
+        type: 'int',
+
+        defaultValue: '11',
+
+        label: 'Add Spanks Amount'
+
+    },
+
+    {
+
+        name: 'addmsg',
+
+        type: 'str',
+
+        defaultValue: 'tipper Tipped to add Spanks Total Spanks: spanks',
+
+        label: 'Add Spanks Notice'
+
+    },
+
+    {
+
+        name: 'subtip',
+
+        type: 'int',
+
+        defaultValue: '12',
+
+        label: 'Sub Spanks Amount'
+
+    },
+
+    {
+
+        name: 'submsg',
+
+        type: 'str',
+
+        defaultValue: 'tipper Tipped to sub Spanks Total Spanks: spanks',
+
+        label: 'Sub Spanks Msg'
+
+    },
+
+    {
+
+        name: 'sptip',
+
+        type: 'int',
+
+        defaultValue: '5',
+
+        label: 'Special Spanks Amount'
+
+    },
+
+    {
+
+        name: 'spmsg',
+
+        type: 'str',
+
+        defaultValue: 'tipper Tipped for AFK Spanks Total Spanks: spanks',
+
+        label: 'Special Spanks Notice'
+
+    },
+
+    {
+
+        name: 'color',
+
+        type: 'str',
+
+        defaultValue: '#80FFE0',
+
+        label: 'Notice Color'
+
+    },
+
+    {
+
+        name: 'subcolor',
+
+        type: 'str',
+
+        defaultValue: '#e0f2fb #d5edfa #c9e9f8 #bde4f7 #b0dff5 #a2daf4 #93d5f2 #83d0f0 #73cbef #5ec5ed #44c0eb #17bae9 #00b6e8 #0098d8 #0093d0 #008dc9 #0087c1',
+
+        label: 'Notice Colors for Sub Spanks'
+
+    },
+
+    {
+
+        name: 'addcolor',
+
+        type: 'str',
+
+        defaultValue: '#80FFE0',
+
+        label: 'Notice Color for Add Spanks'
+
+    },
+
+    {
+
+        name: 'inc',
+
+        type: 'str',
+
+        defaultValue: '0 25 50 100 150 200 250 300 400 500 600 700 800 900 1000 1500',
+
+        label: 'Notice Color Increments'
+
+    },
+
+]
+
+let spanks = 0;
+
+let addtotal = 0;
+
+let subtotal = 0;
+
+let sptotal = 0;
+
+let time;
+
+let noticecolor;
+
+var spankson = true;
+
+var afk = false;
+
+cb.onMessage(function(msg) {
+
+    func = msg['m']
+
+    if (func.startsWith(cb.settings.exec)) {
+
+        msg['X-Spam'] = true
+
+    } else {
+
+        return msg
+
+    }
+
+    if (func == '!spanks') {
+
+        cb.chatNotice('Total Spanks: ' + spanks, msg['user'], cb.settings.color)
+
+    }
+
+    if (msg['user'] == cb.room_slug || msg['is_mod']) {
+
+        activate(func.substr(1))
+
+    }
+
+});
+
+function activate(func) {
+
+    if (func == 'spankson') {
+
+        spanks = true
+
+        notice(cb.settings.onmsg)
+
+    }
+
+    if (func == 'spanksoff') {
+
+        spanks = false
+
+        notice(cb.settings.offmsg)
+
+    }
+
+    if (func == 'afkon') {
+
+        spon = true
+
+        notice(cb.settings.sponmsg)
+
+    }
+
+    if (func == 'afkoff') {
+
+        spon = false
+
+        notice(cb.settings.spoffmsg)
+
+    }
+
+    if (func.startsWith('spanked')) {
+
+        spanked = func.split(' ')[1]
+
+        if (!(isNaN(spanked))) {
+
+            spanks -= spanked
+
+            notice('Removed: ' + spanked + ' New Total: ' + spanks + ' Spanks')
+
+        }
+
+    }
+
+    if (func.startsWith('addspanks')) {
+
+        spanked = func.split(' ')[1]
+
+        if (!(isNaN(spanked))) {
+
+            spanks += parseInt(spanked)
+
+            notice('Added: ' + spanked + ' New Total: ' + spanks + ' Spanks')
+
+        }
+
+    }
+
+    if (func.startsWith('timed')) {
+
+        time = parseInt(func.split(' ')[2])
+
+        func = func.split(' ')[1]
+
+        if (!(isNaN(time))) {
+
+            timeron = true
+
+            timer(func)
+
+        }
+
+    }
+
+    if (func == 'total') {
+
+        notice('Times used: ' + addtotal + ' Add Spanks, ' + subtotal + ' Sub Spanks, ' + sptotal + ' Special Spanks')
+
+    }
+
+}
+
+function notice(msg, ) {
+
+    cb.chatNotice(msg, '', cb.settings.color)
+
+}
+
+function timer(func) {
+
+    if (timeron == true) {
+
+        time--
+
+        if (time > 0) {
+
+            notice(time + ' Minutes Remaining until ' + func)
+
+            cb.setTimeout(function() {
+                timer(func)
+            }, 2000, )
+
+        } else {
+
+            activate(func)
+
+        }
+
+    }
+
+}
+
+cb.onTip(function(tip) {
+
+    if (spankson || spon) {
+
+        tipper = tip['from_user']
+
+        total = tip['amount']
+
+        if (spankson) {
+
+            if (total == cb.settings.addtip) {
+
+                addtotal++
+
+                spanks += 5
+
+                colors(cb.settings.addcolor, cb.settings.inc)
+
+                cb.chatNotice(cb.settings.addmsg, '', noticecolor)
+
+            }
+
+            if (total == cb.settings.subtip) {
+
+                subtotal++
+
+                spanks -= 5
+
+                colors(cb.settings.subcolor, cb.settings.inc)
+
+                cb.chatNotice(cb.settings.submsg, '', noticecolor)
+
+            }
+
+        }
+
+        if (spon) {
+
+            if (total == cb.settings.sptip) {
+
+                sptotal++
+
+                spanks += 5
+
+                colors(cb.settings.addcolor, cb.settings.inc)
+
+                cb.chatNotice(cb.settings.spmsg, '', noticecolor)
+
+            }
+
+        }
+
+    }
+
 })
+
+function colors(choice, inc) {
+
+    color = choice.split[' ']
+
+    value = inc.split[' ']
+
+    for (let i = 0; i < color.len; i++) {
+
+        if (spanks >= value[i]) {
+
+            noticecolor = color[i]
+
+        }
+
+    }
+
+}
